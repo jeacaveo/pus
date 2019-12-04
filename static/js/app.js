@@ -18,6 +18,9 @@ function addUnitToPage(unit) {
 function onLoad() {
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search.slice(1));
+  // Re-populate search input
+  document.getElementById("unitsQuery").value = params.get("q");
+
   if (params.has("q")) {
     // Hide cheatsheet
     const cheatsheet = document.getElementById("cheatsheet");
