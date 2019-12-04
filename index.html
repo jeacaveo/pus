@@ -17,7 +17,7 @@
   <!-- One day...
   <body onload="brython(1)">
   -->
-  <body>
+  <body onload="onLoad();">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand d-none d-md-inline-block text-primary" href="/">PUS</a>
@@ -39,7 +39,15 @@
       </div>
     </nav>
 
-    <main role="main" class="container mt-5">
+    <main id="main" role="main" class="container mt-5 mb-5">
+      <div id="unitDisplay" class="row"></div>
+
+      <div id="unitsSpinner" class="d-none justify-content-center pt-5">
+        <div class="spinner-grow text-primary" role="status" style="width: 5rem; height: 5rem;">
+          <span class="sr-only">Fetching units...</span>
+        </div>
+      </div>
+
       <div id="cheatsheet" class="card border border-info rounded bg-secondary">
         <h1 class="display-3 text-nowrap text-center text-primary">Prismata Unit Search</h1>
         <div class="ml-2 mr-2">
