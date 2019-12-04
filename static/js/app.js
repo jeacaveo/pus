@@ -20,7 +20,8 @@ function onLoad() {
   const params = new URLSearchParams(url.search.slice(1));
   if (params.has("q")) {
     // Hide cheatsheet
-    document.getElementById("cheatsheet").classList.add("d-none");
+    const cheatsheet = document.getElementById("cheatsheet");
+    cheatsheet.classList.add("d-none");
 
     // Show loading spinner
     const spinner = document.getElementById("unitsSpinner");
@@ -34,7 +35,14 @@ function onLoad() {
       .then(response => response.json())
         .then(data => {
           spinner.classList.remove("d-flex");  // Hide loading spinner
-          data.map(addUnitToPage);
+          const units = data.map(addUnitToPage);
+
+          // No results
+          if (units.length == 0) {
+            // Show alert and cheatsheet
+            document.getElementById("notFoundAlert").classList.remove("d-none");
+            cheatsheet.classList.remove("d-none");
+          }
         }).catch(err => console.log(err));
   }
 }
