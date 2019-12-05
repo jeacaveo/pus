@@ -2,7 +2,7 @@
 function addUnitToPage(unit) {
   const innerDiv = document.createElement("div");
   innerDiv.classList.add("card");
-  innerDiv.classList.add("col-md-4");
+  innerDiv.classList.add("col-md-6");
   imageHtml = `
     <img
       src="${unit.panel_url ? unit.panel_url : 'https://via.placeholder.com/453x217/696969/FFF/?text=' + unit.name}"
