@@ -11,7 +11,7 @@ function addUnitToPage(unit) {
     <a href="https://prismata.gamepedia.com${unit.wiki_path}" target="_blank">
       ${imageHtml}
     </a>
-    <p class="card-text text-warning">Supply: ${unit.supply}</p>`;
+    <p class="card-text text-warning"><small>Supply: ${unit.supply}</small></p>`;
   document.getElementById("unitDisplay").appendChild(innerDiv);
   return innerDiv;
 }
