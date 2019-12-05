@@ -4,11 +4,12 @@ function addUnitToPage(unit) {
   innerDiv.classList.add("card");
   innerDiv.classList.add("col-md-4");
   imageHtml = `
-    <img src="${unit.panel_url}" class="card-img-top" alt="${unit.name}">`
-  nameHtml = `<h5 class="card-title">${unit.name}</h5>`
+    <img
+      src="${unit.panel_url ? unit.panel_url : 'https://via.placeholder.com/453x217/696969/FFF/?text=' + unit.name}"
+      class="card-img-top" alt="${unit.name}">`;
   innerDiv.innerHTML = `
     <a href="https://prismata.gamepedia.com${unit.wiki_path}" target="_blank">
-      ${unit.panel_url ? imageHtml : nameHtml}
+      ${imageHtml}
     </a>
     <p class="card-text text-warning">Supply: ${unit.supply}</p>`;
   document.getElementById("unitDisplay").appendChild(innerDiv);
