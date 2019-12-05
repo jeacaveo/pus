@@ -7,7 +7,9 @@ function addUnitToPage(unit) {
     <img src="${unit.panel_url}" class="card-img-top" alt="${unit.name}">`
   nameHtml = `<h5 class="card-title">${unit.name}</h5>`
   innerDiv.innerHTML = `
-    ${unit.panel_url ? imageHtml : nameHtml}
+    <a href="https://prismata.gamepedia.com${unit.wiki_path}" target="_blank">
+      ${unit.panel_url ? imageHtml : nameHtml}
+    </a>
     <p class="card-text text-warning">Supply: ${unit.supply}</p>`;
   document.getElementById("unitDisplay").appendChild(innerDiv);
   return innerDiv;
@@ -18,6 +20,7 @@ function addUnitToPage(unit) {
 function onLoad() {
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search.slice(1));
+
   // Re-populate search input
   document.getElementById("unitsQuery").value = params.get("q");
 
